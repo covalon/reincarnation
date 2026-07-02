@@ -31,7 +31,7 @@ import { compareBuilds, printChangelog } from "./compareSheets.js";
 
   function parseSheet({value, id}) {
     try {
-      const isValid = value.match(/^{\s*?"success":\s?true/gim);
+      const isValid = value.trim().match(/^{\s*?"success":\s?true/gim);
       if (!isValid) throw new Error("Must provide Pathbuilder JSON!");
       return JSON.parse(value);
     } catch (error) {
